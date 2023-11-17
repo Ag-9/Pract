@@ -1,0 +1,63 @@
+///write a program for iterative Fibonacci number
+
+#include <stdio.h> 
+int main()
+{
+  int n, first = 0, second = 1, result, i;
+  printf("Please give an input upto you want to print series :");
+  scanf("%d", &n);
+  printf("Fibonacci Series is: \n");
+  for (i = 0; i < n; i++)
+  {
+    if (i <= 1)
+      result = i;
+    else
+    {
+      result = first + second;
+      first = second;
+      second = result;
+    }
+    printf("%d \n", result);
+  } 
+  return 0;
+} 
+-----------------------------------------------------------------------------------------------------------------------
+///write a program for recursive Fibonacci number
+
+#include <stdio.h>
+// fibonacci() funtion 
+int fibonacci(int num)
+{
+    // first base condition check
+    if (num == 0)
+    {
+        return 0; // retuning 0, if condition meets
+    }
+    // second base condition check
+    else if (num == 1)
+    {
+        return 1; 
+    }
+    // else calling the fibonacci() function recursively 
+    else
+    {
+        return fibonacci(num - 1) + fibonacci(num - 2); // recursively calling the fibonacc() function and then adding them
+    }
+}
+
+int main()
+{
+    int num; 
+    // variable to store how many elements to be displayed in the series
+    printf("Enter the number of elements to be in the series : ");
+    scanf("%d", &num);
+    int i;
+    for (i = 0; i < num; i++)
+    {
+        printf("%d, ", fibonacci(i)); 
+    }
+
+    return 0;
+}
+
+
